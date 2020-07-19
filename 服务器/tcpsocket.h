@@ -90,7 +90,7 @@ public slots:
 signals:
 ///////////////////UI操作///////////////////////////////
 ///控制界面显示信息
-    void dis(bool b);
+    void dis(bool b，QThread *thread);
     void dataError(QString error);
     void client(QString id,QByteArray error);
     void userErrorInfo(QByteArray info);
