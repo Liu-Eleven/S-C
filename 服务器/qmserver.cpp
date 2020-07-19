@@ -316,7 +316,7 @@ void QMServer::clientError(QString id,QByteArray error)
                                     +error);
 }
 
-void QMServer::userDisconnect(bool b)
+void QMServer::userDisconnect(bool b,QThread *thread)
 {
     if(!b)
     {
@@ -334,12 +334,16 @@ void QMServer::userDisconnect(bool b)
                             tr("%1:用户%2下线")
                             .arg(time())
                             .arg(id));
+                delete socket;
+                delete thread;
                 return;
             }
         }
         ui->plainTextEdit->appendPlainText(
                     tr("%1有连接断开")
                     .arg(time()));
+        delete socket;
+        delete thread;
     }
 }
 
