@@ -76,12 +76,11 @@ void TcpSocket::userDisConnect()
 {
     isLogin=false;
     m_time->stop();
+    delete m_data;
     delete m_time;
-    emit dis(isLogin);
-    delete this
     QThread *thread=QThread::currentThread();
+    emit dis(isLogin,thread);
     thread->quit();
-    delete thread;
 }
 
 void TcpSocket::timerHeart()
