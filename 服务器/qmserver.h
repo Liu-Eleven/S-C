@@ -40,7 +40,7 @@ public slots:
     void userErrorInfo(QByteArray data);
     void dataError(QString error);
     void clientError(QString id,QByteArray error);
-    void userDisconnect(bool b);
+    void userDisconnect(bool b,QThread *thread);
     void frinedAdd(QString frinedid,QString userid);
     void upFrinedList(QString userId,QString frinedId);
     void on_start_triggered();
